@@ -7,6 +7,21 @@ We want to predict if a buyer will do a fraudulent buy.
 We have enough data to analyze and work with it. 
 
 ### Description of the source of data
+**date_created:** The date anf hour  
+**date_approved:**
+**email:**
+**external_reference:**
+**operation_id:**
+**status:**
+**status_detail:**
+**Transaction_amount:**
+**installments:**
+**payment_type:**
+**status_detail:**
+**billing_address:**
+**shipping_address:**
+**ship_carrier:**
+**shipping_and_handling:**
 
 ### Questions we hope to answer with the data
 
