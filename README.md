@@ -39,6 +39,15 @@ Nowadays, the company Magenta gets more chargeback and claims, so for its econom
 * How are you training your model? We have one year of operations, fraud operations named as (chargebacks and claims) and approved operations. We'll split data into 75% training set and 25% testing set.
 
 * What is the model's accuracy? 
+We ran a logistic regression and RandomOversampler model and we obtained 0.5 of accuracy, there was a lot of data that we had to remove so the model could be ran properly. Definitely there's a lot to improve and consider, maybe some restrictions on the data. We'll have to go deeper as well as run different models so we can determine which one is the best fit for this case.
+
+<img width="459" alt="randomsampler_performance" src="https://user-images.githubusercontent.com/31755703/169733620-a2bf7e2c-a703-4e60-9d44-35a914e2ac16.PNG">
 
 
-* How does this model work?
+* How does this model work? This is the current performance:
+
+<img width="563" alt="randomsampler_results" src="https://user-images.githubusercontent.com/31755703/169733646-11a03659-ba1a-41c2-9799-45c997b1f392.PNG">
+
+We need to remember that Random Sampler,instances of the minority class are randomly selected and added to the training set until the majority and minority classes are balanced.
+
+
