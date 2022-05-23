@@ -31,7 +31,6 @@ Nowadays, the company Magenta gets more chargeback and claims, so for its econom
 - What is the fraudulent buyer likely to buy?
 - Are fraud operations made from a specific region?
 
-
 ### Provisional machine learning model
 
 * Which model did you choose and why? Supervised Machine Learning will be used for this project, mainly because our data covers operations that we already know that are fraud, this means labeled data. When we dig a little bit more into Supervised Machine learning we know that the classification model will help us in this Fraud detection project.
@@ -49,5 +48,6 @@ We ran a logistic regression and RandomOversampler model and we obtained 0.5 of 
 <img width="563" alt="randomsampler_results" src="https://user-images.githubusercontent.com/31755703/169733646-11a03659-ba1a-41c2-9799-45c997b1f392.PNG">
 
 We need to remember that Random Sampler,instances of the minority class are randomly selected and added to the training set until the majority and minority classes are balanced.
+
 
 
