@@ -7,6 +7,7 @@ We will analyze a large dataset about purchases that result rejected, with the o
 Nowadays, the company Magenta gets more chargeback and claims, so for its economy, it's necessary to have more knowledge of what kind of purchase could be. And to make a decision when it shows the alerts. So, we want to predict if a buyer will do a fraudulent purchase. Also, we have enough data to analyze and work with it. 
 
 ### Description of the source of data
+
 - **date_created:** The date and hour when the chargeback and claim were created.  
 - **date_approved:** The date and hour when the purchase was approved.
 - **email:** Consecutive numbers that correspond to a client's email.
@@ -21,6 +22,11 @@ Nowadays, the company Magenta gets more chargeback and claims, so for its econom
 - **shipping_address:** The complete address for deliver
 - **ship_carrier:** The company which will deliver the purchase.
 - **shipping_and_handling:** If the ship_carrier requires an extra amount for delivery.
+
+In the following figure we show the relation of the dataset:
+
+![Data_structure](Data_structure.png)
+
 
 ### Questions we hope to answer with the data
 
