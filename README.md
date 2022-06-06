@@ -56,7 +56,7 @@ We define new columns with the information we needed of each dataset, and at the
 We needed to merge the "Whole_Collection" table with a table of postal codes that we obtained via SEPOMEX; we called this second table as "CPs_Geometry".
 Once we get both tables, these two were uploaded to AWS to have them availables for the machine learning project.
 
-The merge will be used for the visualization: this will give us visibility regarding where the pruchases were made and found a tendency to corroborate with the machine learning model. The merge will been performed via colab and with the help of pyspark.sql funcitons
+The merge will be used for the visualization: this will give us visibility regarding where the purchases were made and found a tendency to corroborate with the machine learning model. The merge will been performed via colab and with the help of pyspark.sql funcitons
 
 ![image](https://user-images.githubusercontent.com/96214489/172073671-92048dfc-6127-4779-b5f3-ed732281bc25.png)
 
