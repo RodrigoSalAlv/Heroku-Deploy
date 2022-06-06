@@ -38,7 +38,7 @@ In the following figure we show the relation of the dataset:
 - What is the fraudulent buyer likely to buy?
 - Are fraud operations made from a specific region?
 
-## Data exploration
+### Data exploration
 We get a year of information about purchases of cellphones, together with how many of those purchases has result as a fraud. The information was divided in three core databases:
 - Collection: which is the general information of the purchases (date, client ID, amount, purchase order, etc.)
 - Claim/Fraud: this database gave us the information of purchases that result as a fraud or have a claim by the customer.
@@ -82,7 +82,7 @@ We ran a logistic regression and RandomOversampler model and we obtained 0.5 of 
 
 We need to remember that Random Sampler,instances of the minority class are randomly selected and added to the training set until the majority and minority classes are balanced.
 
-## Machine Learning Model Second Segment
+### Machine Learning Model Second Segment
 
 ### Description of preliminary data preprocessing
 
