@@ -1,3 +1,4 @@
+
 # machine-learning-project
 ### Selected topic
 We will analyze a large dataset about purchases that result rejected, with the objective to predict and visualize the patterns that have the clients that get a chargeback or claim, using a machine learning model.
