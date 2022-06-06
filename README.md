@@ -85,30 +85,21 @@ Finally we decided to try Random Forest, after all it is an improvement on how d
 
 The main reasons for this decision are:
 
-Random forest algorithms:
+# Random forest algorithms:
 
-Are robust against overfitting as all of those weak learners are trained on different pieces of the data.
-Can be used to rank the importance of input variables in a natural way.
-Can handle thousands of input variables without variable deletion.
-Are robust to outliers and nonlinear data.
-Run efficiently on large datasets.
+* Are robust against overfitting as all of those weak learners are trained on different pieces of the data.
+* Can be used to rank the importance of input variables in a natural way.
+* Can handle thousands of input variables without variable deletion.
+* Are robust to outliers and nonlinear data.
+* Run efficiently on large datasets.
 
+
+## Interpretation of results:
 ![image](https://user-images.githubusercontent.com/31755703/172081024-f026a89e-eefb-4fce-8fac-b4a56871a12d.png)
 
+We need to improve the recall score, 0.30 tells us that 30% of the times we'll be right when detecting actual frauds, but 70% of the time we won't. One benefit of the current model is that we are not losing many transactions by classifying them as fraud when they are not, which is good for the business but there's still room for improvement so we can catch all of the fraud transactions. 
 
 We ran the model with 500 n_estimators which are the number of trees that were created by the algorithm. Generally, the higher number makes the predictions stronger and more stable, but can slow down the output because of the higher training time allocated. So for this test we decided to go with 500 and didn't take much time.
 
 Now we can clearly see which features, or columns are more relevant.
 ![features_random](https://user-images.githubusercontent.com/31755703/172081264-b362a8d4-6353-49c5-b7a5-111bb0068e7b.PNG)
-
-
-
-How does it work?
-Why this specific model?
-What is the model's accuracy?
-If there are statistics involved, what stats are being included in analysis and why?
-If no statistics are involved, what would you include if you had more time?
-
-
-At the end of this segment, you will need to have a description of the model and a discussion about any preprocessing involved. Additionally, an interpretation of the accuracy, precision, and sensitivity of the model should be included with the submission.
-
