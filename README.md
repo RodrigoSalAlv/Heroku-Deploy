@@ -82,7 +82,7 @@ We ran a logistic regression and RandomOversampler model and we obtained 0.5 of 
 
 We need to remember that Random Sampler,instances of the minority class are randomly selected and added to the training set until the majority and minority classes are balanced.
 
-### Machine Learning Model Second Segment
+## Machine Learning Model Second Segment
 
 ### Description of preliminary data preprocessing
 
