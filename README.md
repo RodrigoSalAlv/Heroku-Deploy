@@ -55,7 +55,7 @@ We need to remember that Random Sampler,instances of the minority class are rand
 
 After running a Resampling model in the first segment we realized that we had to go one step back. For this part we ran the model again but considering less information. So as part of a data preprocessing we selected specific columns in order to have less noise in the model. 
 
-Remember that the first accuracy score was 0.5 which was the same as a simple guess.
+(Remember that the first accuracy score was 0.5 which was the same as a simple guess.)
 ![lessdata](https://user-images.githubusercontent.com/31755703/172079336-1482b42b-382f-40e3-b6a0-18cb65d992e3.PNG)
 
 Considering only the following columns:customer_ID, status, transaction_amount, installments, payment_type, month_created, shp_zipcode, fraud_flag and Item_1 we got an improvement on the balanced_accuracy_score of 0.77
@@ -74,10 +74,12 @@ In order to use decision tree model and random forest we took even less data int
 
 
 Data was splitted considering 75% for training and 25% for testing also taking into account the fact of having stratified splitting due to the number of fraud transactions which is very low compared to the size of the whole database.
+
+
 ![Spliting](https://user-images.githubusercontent.com/31755703/172080350-7b80dc9e-a4b1-4fe4-a78b-2c627ec514a2.PNG)
 
-
 After running the model these are the results:
+
 ![results_decision_tree](https://user-images.githubusercontent.com/31755703/172080519-171fad09-9704-4b29-a8c6-924c567058ed.PNG)
 
 As you may see there was a lot of improvement as for the accuracy score and for the recall.
