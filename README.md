@@ -45,9 +45,9 @@ In the following figure we show the relation of the dataset:
 
 ## Data exploration
 We get a year of information about purchases of cellphones, together with how many of those purchases has result as a fraud. The information was divided in three core databases:
-- Collection: which is the general information of the purchases (date, client ID, amount, purchase order, etc.)
-- Claim/Fraud: this database give us the information of purchases that result as a fraud/chargeback or have a claim by the customer.
-- Magento: the magento database gave us information regarding the products that where pruchased in each pruchase order
+- **Collection:** which is the general information of the purchases (date, client ID, amount, purchase order, etc.)
+- **Claim/Fraud:** this database give us the information of purchases that result as a fraud/chargeback or have a claim by the customer.
+- **Magento:** the magento database gave us information regarding the products that where pruchased in each pruchase order
 
 We needed to cast most of the information due to many columns were declared as a string when the databases had other types like integers, datetime, floats, etc. Some information needed was inside of a very long string with not relevant information, so we need to use regular expression to get the information we needed such as: zipcode from the address, sku from the product, carrier, etc. Also some columns need to be splited for easy extraction of information.
 
