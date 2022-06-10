@@ -1,11 +1,11 @@
 
-# machine-learning-project
+# Fraud risk prediction.
 ### Selected topic
-We will analyze a large dataset about purchases that result rejected, with the objective to predict and visualize the patterns that have the clients that get a chargeback or claim, using a machine learning model.
+We will analyze a large dataset of purchases that have resulted as a "chargeback" or "claim", with the objective to predict and visualize the patterns the clients have to get a rejected transaction, using a machine learning model.
 
 ### Reason they selected the topic
 
-Nowadays, the company Magenta gets more chargeback and claims, so for its economy, it's necessary to have more knowledge of what kind of purchase could be. And to make a decision when it shows the alerts. So, we want to predict if a buyer will do a fraudulent purchase. Also, we have enough data to analyze and work with it. 
+Nowadays, the company Telmov have found a increase tendency of chargebacks and claims, so to try to reduce the quantity of losses, it's necessary to get more insights of what kind of purchase could be and to make a decision in case of a fraudulent purchase. So, we want to predict if a buyer will do a fraudulent purchase. The data set we were able to get was of one year purchases, in a range from may-21 to may-22.
 
 ### Description of the source of data
 
