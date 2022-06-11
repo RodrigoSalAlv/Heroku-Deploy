@@ -99,8 +99,21 @@ The main reasons for this decision are:
 * Are robust to outliers and nonlinear data.
 * Run efficiently on large datasets.
 
+### Explanation of changes in model choice (if changes occurred between the Segment 2 and Segment 3 deliverables) 
 
-#### Interpretation of results:
+First model - Oversampling: The first approach was to have a model that best fits the fraud detection problem. Oversampling seemed like the way to go due to the quantity of fraud operations we had vs all the operations (less than 1%). But after running the model and having a balanced accuracy score of 0.5 it was clear that this model didn't work for us.
+
+Second model - Decision tree: So the second model was Decision tree. Decision trees are natural ways in which you can classify or label 
+
+Third model - Random Forest
+
+
+### Description of how they have trained the model thus far, and any additional training that will take place
+
+The model has been trained with the information of 1 year of current operation. We already know if an operation was a fraud or not. Since we have sales in a daily basis, the model can be trained under this frequency and if any past operation is chargedback we'll feed this input too into the model. The main goal is to use it as a tool to diminish fraud operations so the margin can improve for the company. There's a possibility of connecting directly to Mercadopago vía API so that this additional training can be automated. This possibility will be explored in the next weeks.  
+
+
+#### Description of current accuracy score:
 ![image](https://user-images.githubusercontent.com/31755703/172081024-f026a89e-eefb-4fce-8fac-b4a56871a12d.png)
 
 We need to improve the recall score, 0.30 tells us that 30% of the times we'll be right when detecting actual frauds, but 70% of the time we won't. One benefit of the current model is that we are not losing many transactions by classifying them as fraud when they are not, which is good for the business but there's still room for improvement so we can catch all of the fraud transactions. 
