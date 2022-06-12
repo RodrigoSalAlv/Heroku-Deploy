@@ -103,9 +103,9 @@ The main reasons for this decision are:
 
 First model - Oversampling: The first approach was to have a model that best fits the fraud detection problem. Oversampling seemed like the way to go due to the quantity of fraud operations we had vs all the operations (less than 1%). But after running the model and having a balanced accuracy score of 0.5 it was clear that this model didn't work for us.
 
-Second model - Decision tree: So the second model was Decision tree. Decision trees are natural ways in which you can classify or label 
+Second model - Decision tree: So the second model was Decision tree. Decision trees are natural ways in which you can classify or label considering different variables as a series of questions. The Balanced Accuracy Scored improved significantly and we started looking at the Recall Value too. 
 
-Third model - Random Forest
+Third model - We finally decided to try Random Forest as an improvement to Decision Tree. This one got the highest Balanced Accuracy Score but Recall score is low. As a second part of the analysis of this model we can re evaluate the operations that are marked as fraud and actually they are not by a manual revision, this might not be the best solution but as per the results it is quite better just to double check 43 operations and not thousands as per the first model.
 
 
 ### Description of how they have trained the model thus far, and any additional training that will take place
