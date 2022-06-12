@@ -1,28 +1,40 @@
-# machine-learning-project
-### Selected topic
-We will analyze a large dataset about purchases that result rejected, with the objective to predict and visualize the patterns that have the clients that get a chargeback or claim, using a machine learning model.
 
-### Reason they selected the topic
+# Fraud risk prediction.
+## Selected topic
+We will analyze a large dataset of purchases that have resulted as a "chargeback" or "claim", with the objective to predict and visualize the patterns the clients have to get a rejected transaction, using a machine learning model.
 
-Nowadays, the company Magenta gets more chargeback and claims, so for its economy, it's necessary to have more knowledge of what kind of purchase could be. And to make a decision when it shows the alerts. So, we want to predict if a buyer will do a fraudulent purchase. Also, we have enough data to analyze and work with it. 
+## Reason they selected the topic
 
-### Description of the source of data
+Nowadays, the company Telmov have found an increase tendency of chargebacks and claims, so to try to reduce the quantity of losses, it's necessary to get more insights of what kind of purchase could be and to make a decision in case of a fraudulent purchase. So, we want to predict if a buyer will do a fraudulent purchase. The data set we were able to get was of one year purchases, in a range from may-21 to may-22.
+
+## Description of the source of data
+
 - **date_created:** The date and hour when the chargeback and claim were created.  
 - **date_approved:** The date and hour when the purchase was approved.
-- **email:** Consecutive numbers that correspond to a client's email.
-- **external_reference:** It's a number that uses Magenta to reference the client's purchase with Mercado Libre.
-- **operation_id:** The number that use Mercado Libre to identify a purchase.
-- **status:** The status of the buy.
-- **status_detail:** The status of the operation, claim or chargeback.
-- **transaction_amount:** The total of the purchase.
+- **customer_ID:** Consecutive numbers that correspond to a client's ID.
+- **external_reference:** Reference number of the purchases through Mercado Libre.
+- **operation_id:** Transaction reference number into Telmov.
+- **status:** Purchase status (approved, rejected, etc.)
+- **status_detail:** Operation status (claim, chargeback, etc.)
+- **transaction_amount:** Purchase total.
 - **installments:** How many periods it will pay the transaction_amount.
-- **payment_type:** The different ways to pay the purchase.
-- **billing_address:** The complete address the payment_type require.
-- **shipping_address:** The complete address for deliver
-- **ship_carrier:** The company which will deliver the purchase.
-- **shipping_and_handling:** If the ship_carrier requires an extra amount for delivery.
+- **payment_type:** Purchase payment method
+- **billing_address:** Billing address (only zipcode needed).
+- **shipping_address:** Delivery address (only zipcode needed).
+- **ship_carrier:** Delivery carrier.
+- **shipping_and_handling:** Delivery fee.
+- **postal_code:** postal code.
+- **state:** postal code state.
+- **municipality:** postal code municipality.
+- **longitude:** postal code longitude.
+- **latitude:** postal code latitude.
 
-### Questions we hope to answer with the data
+In the following figure we show the relation of the dataset:
+
+![Data_structure](Data_structure.png)
+
+
+## Questions we hope to answer with the data
 
 - Is it a safe operation?
 - What variables are related to the fraudulent buyer?
@@ -31,25 +43,33 @@ Nowadays, the company Magenta gets more chargeback and claims, so for its econom
 - What is the fraudulent buyer likely to buy?
 - Are fraud operations made from a specific region?
 
-### Provisional machine learning model
+## Data exploration
+We get a year of information about purchases of cellphones, together with how many of those purchases has result as a fraud. The information was divided in three core databases:
+- **Collection:** which is the general information of the purchases (date, client ID, amount, purchase order, etc.)
+- **Claim/Fraud:** this database give us the information of purchases that result as a fraud/chargeback or have a claim by the customer.
+- **Magento:** the magento database gave us information regarding the products that where pruchased in each pruchase order
 
-* Which model did you choose and why? Supervised Machine Learning will be used for this project, mainly because our data covers operations that we already know that are fraud, this means labeled data. When we dig a little bit more into Supervised Machine learning we know that the classification model will help us in this Fraud detection project.
+We needed to cast most of the information due to many columns were declared as a string when the databases had other types like integers, datetime, floats, etc. Some information needed was inside of a very long string with not relevant information, so we need to use regular expression to get the information we needed such as: zipcode from the address, sku from the product, carrier, etc. Also some columns need to be splited for easy extraction of information.
 
-* How are you training your model? We have one year of operations, fraud operations named as (chargebacks and claims) and approved operations. We'll split data into 75% training set and 25% testing set.
-
-* What is the model's accuracy? 
-We ran a logistic regression and RandomOversampler model and we obtained 0.5 of accuracy, there was a lot of data that we had to remove so the model could be ran properly. Definitely there's a lot to improve and consider, maybe some restrictions on the data. We'll have to go deeper as well as run different models so we can determine which one is the best fit for this case.
-
-<img width="459" alt="randomsampler_performance" src="https://user-images.githubusercontent.com/31755703/169733620-a2bf7e2c-a703-4e60-9d44-35a914e2ac16.PNG">
+![image](https://user-images.githubusercontent.com/96214489/172073457-989535c2-0183-42d4-bd29-3e3c3ff06bb1.png)
 
 
-* How does this model work? This is the current performance:
+We define new columns with the information we needed of each dataset, and at the end we merge the three different data sets in just one table called "Whole_Collection", we will use this database to create the machine learning module.
 
-<img width="563" alt="randomsampler_results" src="https://user-images.githubusercontent.com/31755703/169733646-11a03659-ba1a-41c2-9799-45c997b1f392.PNG">
+![image](https://user-images.githubusercontent.com/96214489/172073469-93fb528a-9e6e-48e2-9762-b7a3b60aa6ff.png)
 
-We need to remember that Random Sampler,instances of the minority class are randomly selected and added to the training set until the majority and minority classes are balanced.
+We needed to merge the "Whole_Collection" table with a table of postal codes that we obtained via SEPOMEX; the name of this second table as "CPs_Geometry".
+Once we get both tables, these two were uploaded to AWS to have them availables.
 
-## Machine Learning Model Second Segment
+The merge will be used for the visualization: this will give us visibility regarding where the purchases were made and found a tendency to corroborate with the machine learning model. The merge have been performed via colab and with the help of pyspark.sql funcitons
+
+![image](https://user-images.githubusercontent.com/96214489/172073671-92048dfc-6127-4779-b5f3-ed732281bc25.png)
+
+The last table obtained by this merge will be called "whole_collection_geom" and this will be storage in a AWS database and in a bucket to be available for the visibility, as well as in postgres for any analysis needed.
+
+![image](https://user-images.githubusercontent.com/96214489/172073862-9db3b9d1-8e77-4479-98b1-656d773519ee.png)
+
+## Machine Learning Model 
 
 ### Description of preliminary data preprocessing
 
@@ -71,7 +91,6 @@ In order to use decision tree model and random forest we took even less data int
 ![decision_tree_data](https://user-images.githubusercontent.com/31755703/172080055-428640ea-c0d2-423b-935d-f0c31742f70f.PNG)
 
 ### Description of how data was split into training and testing sets
-
 
 Data was splitted considering 75% for training and 25% for testing also taking into account the fact of having stratified splitting due to the number of fraud transactions which is very low compared to the size of the whole database.
 
@@ -99,6 +118,7 @@ The main reasons for this decision are:
 * Are robust to outliers and nonlinear data.
 * Run efficiently on large datasets.
 
+
 ### Explanation of changes in model choice (if changes occurred between the Segment 2 and Segment 3 deliverables) 
 
 First model - Oversampling: The first approach was to have a model that best fits the fraud detection problem. Oversampling seemed like the way to go due to the quantity of fraud operations we had vs all the operations (less than 1%). But after running the model and having a balanced accuracy score of 0.5 it was clear that this model didn't work for us.
@@ -114,6 +134,9 @@ The model has been trained with the information of 1 year of current operation. 
 
 
 #### Description of current accuracy score:
+======
+### Interpretation of results:
+
 ![image](https://user-images.githubusercontent.com/31755703/172081024-f026a89e-eefb-4fce-8fac-b4a56871a12d.png)
 
 We need to improve the recall score, 0.30 tells us that 30% of the times we'll be right when detecting actual frauds, but 70% of the time we won't. One benefit of the current model is that we are not losing many transactions by classifying them as fraud when they are not, which is good for the business but there's still room for improvement so we can catch all of the fraud transactions. 

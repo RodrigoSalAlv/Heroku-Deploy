@@ -3,6 +3,13 @@ __pycache__/
 *.py[cod]
 *$py.class
 
+#ignore
+.DS_Store
+randomforest_deeplearning.ipynb
+machine-learning-project.pptx
+Data_structure.png
+diegos-branch
+
 # C extensions
 *.so
 
