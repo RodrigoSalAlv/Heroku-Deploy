@@ -116,7 +116,7 @@ The main reasons for this decision are:
 * Can be used to rank the importance of input variables in a natural way.
 * Can handle thousands of input variables without variable deletion.
 * Are robust to outliers and nonlinear data.
-* Run efficiently on large datasets.
+* Run efficiently on large datasets
 
 ### Interpretation of results:
 ![image](https://user-images.githubusercontent.com/31755703/172081024-f026a89e-eefb-4fce-8fac-b4a56871a12d.png)
