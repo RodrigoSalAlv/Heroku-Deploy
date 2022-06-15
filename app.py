@@ -178,7 +178,7 @@ def home():
     fig8.update_layout(xaxis_range=[0,15])
     graphJSON8 = json.dumps(fig8, cls=plotly.utils.PlotlyJSONEncoder)
      
-    return render_template("index.html", graphJSON1=graphJSON1,graphJSON2=graphJSON2,
+    return render_template("DashHTML.html", graphJSON1=graphJSON1,graphJSON2=graphJSON2,
                                             graphJSON3=graphJSON3, graphJSON4=graphJSON4,
                                             graphJSON5=graphJSON5,graphJSON6=graphJSON6,
                                             graphJSON7=graphJSON7,graphJSON8=graphJSON8)
