@@ -19,7 +19,7 @@ engine = create_engine(url)
 connect = engine.connect()
 
 
-@app.route('/dashboard')
+@app.route('/')
 def home():
     #Writing a query for the first table
     query1 = '''select state,
