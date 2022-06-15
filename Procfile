@@ -1,1 +1,1 @@
-web: gunicorn Fraud_Analysis.app:app
+web: gunicorn app:app
